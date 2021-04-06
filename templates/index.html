@@ -1,0 +1,28 @@
+{% extends "base.html" %}
+{% block content %}
+  <div class="container">
+  <div class="card" style="width: 40rem; margin:auto; margin-top: 10%; margin-bottom:10%;">
+    <div class="card-body">
+      <h2 class="card-title" style="font-family: Impact, Charcoal, sans-serif"><center>Product Recommendations</center></h2>
+      <form action="{{ url_for('predict')}}" method="POST">
+        <br>
+        <div class="form-group">
+          <label for="exampleInputName">Name</label>
+          <input type="text" class="form-control" name="username" id="UserName" required="" placeholder="Enter your name">
+        </div>
+      <div class="form-group">
+    <label for="exampleFormControlSelect1">product Name</label>
+    <select name="choice" class="form-control" id="exampleFormControlSelect1">
+    {% for product in products %}
+    <option value= "{{product}}" SELECTED>{{product}}</option>"
+     {% endfor %}
+    </select>
+<small id="emailHelp" class="form-text text-muted">Enter the product your are interested in.</small>
+  </div>
+      <br>
+      <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+    </div>
+  </div>
+</div>
+{% endblock %}
